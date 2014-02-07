@@ -11,7 +11,7 @@ function generateGUID() {
   });
 }
 
-function bundleIdFromName(props) {
+function extractBundleId(_, props) {
   return "com." + _.slugify(props.author) + "." + _.slugify(props.appname);
 }
 
@@ -38,6 +38,7 @@ util.inherits(CliTitaniumProjectGenerator, yeoman.generators.Base);
 
 CliTitaniumProjectGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
+  var bundleIdFromName = this._.partial(extractBundleId, this._);
 
   // have Yeoman greet the user.
   console.log(this.yeoman);
@@ -50,6 +51,7 @@ CliTitaniumProjectGenerator.prototype.askFor = function askFor() {
     type:     'input',
     name:     'appname',
     message:  'What will you call your app?',
+    default:  this.appname,
     validate: notBlank
   }, {
     type:     'input',
