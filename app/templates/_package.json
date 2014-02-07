@@ -6,13 +6,10 @@
   "devDependencies": {
     "q": "*",
     "coffee-script": "*",
-<% if use_alloy { %>
-    "alloy": "*",
-<% } %>
-<% if use_server { %>
+<% if (use_server) { %>
     "express": "*",
 <% } %>
-<% if use_tests { %>
+<% if (use_tests) { %>
     "mocha": "*",
     "chai": "*",
     "sinon": "*",
@@ -21,7 +18,7 @@
 <% } %>
     "titanium": "*"
   },
-<% if use_tests { %>
+<% if (use_tests) { %>
   "scripts": {
     "test": "coffee ./launcher --test"
   },

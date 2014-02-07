@@ -95,8 +95,8 @@ CliTitaniumProjectGenerator.prototype.askFor = function askFor() {
     this.description = props.description;
     this.url         = props.url;
     this.version     = props.version;
-    this.use_tests   = props.options.use_tests;
-    this.use_server  = props.options.use_server;
+    this.use_tests   = props.options.indexOf('use_tests') !== -1;
+    this.use_server  = props.options.indexOf('use_server') !== -1;
     this.guid        = generateGUID();
     this.copyright   = new Date().getFullYear() + (this.author ? " " + this.author : "");
 
@@ -105,12 +105,19 @@ CliTitaniumProjectGenerator.prototype.askFor = function askFor() {
 };
 
 CliTitaniumProjectGenerator.prototype.app = function app() {
-  this.mkdir('app');
-  this.mkdir('app/templates');
-
-  this.copy('_package.json', 'package.json');
+  this.template('_package.json', 'package.json');
+  this.template('tiapp.xml', 'tiapp.xml');
 };
 
 CliTitaniumProjectGenerator.prototype.projectfiles = function projectfiles() {
+  this.template('launcher', 'launcher');
   this.copy('jshintrc', '.jshintrc');
+};
+
+CliTitaniumProjectGenerator.prototype.serverFiles = function projectfiles() {
+  this.mkdir('dev_server');
+  this.copy('server.coffee', 'dev_server/server.coffee');
+};
+
+CliTitaniumProjectGenerator.prototype.testFiles = function projectfiles() {
 };

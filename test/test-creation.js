@@ -23,11 +23,20 @@ describe('cli-titanium-project generator', function () {
     var expected = [
       // add files you expect to exist here.
       '.jshintrc',
-      'package.json'
+      'package.json',
+      'tiapp.xml',
+      'launcher',
+      'dev_server/server.coffee'
     ];
 
     helpers.mockPrompt(this.app, {
-      'someOption': true
+      'author':      'John Doe',
+      'appname':     'Test App',
+      'bundle_id':   'com.test.test-app',
+      'description': 'Dolor exercitationem voluptas harum atque eligendi alias quas?',
+      'url':         'http://example.com/',
+      'version':     '0.0.0',
+      'options':     [ 'use_tests', 'use_server' ]
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
