@@ -37,5 +37,8 @@
   <modules>
   </modules>
   <plugins>
+<% if (use_alloy) { %>
+    <plugin version="1.0">ti.alloy</plugin>
+<% } %>
   </plugins>
 </ti:app>

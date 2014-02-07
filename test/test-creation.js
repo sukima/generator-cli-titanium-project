@@ -36,7 +36,7 @@ describe('cli-titanium-project generator', function () {
       'description': 'Dolor exercitationem voluptas harum atque eligendi alias quas?',
       'url':         'http://example.com/',
       'version':     '0.0.0',
-      'options':     [ 'use_tests', 'use_server' ]
+      'options':     [ 'use_alloy', 'use_tests', 'use_server' ]
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {

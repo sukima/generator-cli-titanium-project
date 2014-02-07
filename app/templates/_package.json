@@ -6,6 +6,9 @@
   "devDependencies": {
     "q": "*",
     "coffee-script": "*",
+<% if (use_alloy) { %>
+    "alloy": "*",
+<% } %>
 <% if (use_server) { %>
     "express": "*",
 <% } %>

@@ -77,6 +77,10 @@ CliTitaniumProjectGenerator.prototype.askFor = function askFor() {
     name:    'options',
     message: 'Extras:',
     choices: [{
+      name:    'Include Alloy',
+      value:   'use_alloy',
+      checked: true
+    }, {
       name:    'Include a testing framework (mocha, chai, sinon, mockti)',
       value:   'use_tests',
       checked: true
@@ -95,6 +99,7 @@ CliTitaniumProjectGenerator.prototype.askFor = function askFor() {
     this.description = props.description;
     this.url         = props.url;
     this.version     = props.version;
+    this.use_alloy   = props.options.indexOf('use_alloy') !== -1;
     this.use_tests   = props.options.indexOf('use_tests') !== -1;
     this.use_server  = props.options.indexOf('use_server') !== -1;
     this.guid        = generateGUID();
