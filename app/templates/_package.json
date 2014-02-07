@@ -1,0 +1,30 @@
+{
+  "name": "<%= appname %>",
+  "version": "<%= version %>",
+  "author": "<%= author %>",
+  "description": "<%= description %>",
+  "devDependencies": {
+    "q": "*",
+    "coffee-script": "*",
+<% if use_alloy { %>
+    "alloy": "*",
+<% } %>
+<% if use_server { %>
+    "express": "*",
+<% } %>
+<% if use_tests { %>
+    "mocha": "*",
+    "chai": "*",
+    "sinon": "*",
+    "proxyquire": "*",
+    "mockti": "*",
+<% } %>
+    "titanium": "*"
+  },
+<% if use_tests { %>
+  "scripts": {
+    "test": "coffee ./launcher --test"
+  },
+<% } %>
+  "dependencies": {}
+}
