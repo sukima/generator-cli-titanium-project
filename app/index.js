@@ -47,9 +47,10 @@ CliTitaniumProjectGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [{
-    type:    'input',
-    name:    'author',
-    message: 'Your name please:'
+    type:     'input',
+    name:     'author',
+    message:  'Your name please:',
+    validate: notBlank
   }, {
     type:     'input',
     name:     'appname',
